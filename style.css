@@ -1,8 +1,10 @@
+/* Universal reset */
 *{
     margin: 0;
     padding: 0;
 }
 
+/* Main section */
 .main{
     width: 100%;
     background: url(pic/bg.jpg);
@@ -13,6 +15,7 @@
     font-family: sans-serif;
 }
 
+/* Navbar */
 .navbar{
     width: 86%;
     display: flex;
@@ -46,13 +49,13 @@ ul li a{
     color: darkslategray;
     margin-top: -3%;
     transition: .4s ease;
-
 }
 
 ul li a:hover{
     color: rgb(244, 31, 46);
 }
 
+/* Info section */
 .info{
     margin-left: 7%;
     margin-top: 6%;
@@ -88,6 +91,7 @@ ul li a:hover{
     background: rgb(59,174,209);
 }
 
+/* Image positioning */
 .image{
     width: 30%;
     height: 60%;
@@ -109,6 +113,7 @@ ul li a:hover{
     left: 55%;
 }
 
+/* Icons section */
 .icons a{
     text-decoration: none;
     color: #000;
@@ -120,9 +125,63 @@ ul li a:hover{
     margin-right: -60px;
     font-size: 40px;
     transition: .4s ease;
-    
 }
 
 .icons ion-icon:hover{
     color: rgb(59,174,209);
+}
+
+/* Responsive styles for phones and smaller devices */
+@media only screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    ul li {
+        display: block;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    .info {
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+    }
+
+    .info h1 {
+        font-size: 40px;
+    }
+
+    .info h3 {
+        font-size: 16px;
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+        position: static;
+        margin-top: 20px;
+    }
+
+    .image img {
+        width: 70%;
+        height: auto;
+        left: 50%;
+        transform: translate(-50%, 0);
+        bottom: 0;
+    }
+
+    .icons {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .icons ion-icon {
+        font-size: 30px;
+        margin-left: 5%;
+        margin-right: 0;
+    }
 }
