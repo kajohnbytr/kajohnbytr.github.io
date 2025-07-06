@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Aaron Junio | Cybersecurity & Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/html/index.css">
+    <script src="/html/index.js"></script>
+    
+</head>
+<body class="bg-dark-bg font-poppins">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
+    <!-- Floating Background Elements -->
+    <div class="fixed top-1/4 left-1/4 w-4 h-4 bg-neon-blue rounded-full floating opacity-30"></div>
+    <div class="fixed top-1/3 right-1/3 w-6 h-6 bg-neon-cyan rounded-full floating-2 opacity-20"></div>
+    <div class="fixed bottom-1/4 left-1/3 w-3 h-3 bg-neon-teal rounded-full floating-3 opacity-30"></div>
+    <div class="fixed bottom-1/3 right-1/4 w-5 h-5 bg-neon-blue rounded-full floating opacity-25"></div>
+    
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-dark-bg bg-opacity-80 backdrop-blur-md border-b border-neon-blue border-opacity-20">
+        <div class="max-w-6xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">John Aaron Junio</div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#hero" class="text-white hover:text-neon-blue transition-colors duration-300">Home</a>
+                    <a href="#about" class="text-white hover:text-neon-blue transition-colors duration-300">About</a>
+                    <a href="#skills" class="text-white hover:text-neon-blue transition-colors duration-300">Skills</a>
+                    <a href="#certificates" class="text-white hover:text-neon-blue transition-colors duration-300">Certificates</a>
+                    <a href="#projects" class="text-white hover:text-neon-blue transition-colors duration-300">Projects</a>
+                    <a href="#contact" class="text-white hover:text-neon-blue transition-colors duration-300">Contact</a>
+                </nav>
+                <div class="md:hidden">
+                    <button class="text-white hover:text-neon-blue transition-colors duration-300">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 grid-pattern"></div>
+        
+        <div class="glass-card p-10 max-w-4xl mx-4 text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 neon-text">Hi, I'm <span class="gradient-text">John Aaron Junio</span></h1>
+            <h2 class="text-2xl md:text-3xl mb-6 font-light">Cybersecurity Major & Developer</h2>
+            <p class="text-xl opacity-80 mb-8">Creating secure, innovative, and user-centered digital solutions.</p>
+            
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="neon-button px-6 py-3 rounded-full font-medium">View Projects</a>
+                <a href="#" class="neon-button px-6 py-3 rounded-full font-medium">Contact Me</a>
+            </div>
+        </div>
+        
+        <div class="scroll-down"></div>
+    </section>
+    
+    <!-- About Me Section -->
+    <section id="about" class="py-20 px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">About Me</h2>
+            
+            <div class="glass-card p-8 md:p-12 max-w-4xl mx-auto">
+                <p class="text-lg md:text-xl leading-relaxed mb-8">
+                    I am a 3rd year BSIT student majoring in Cybersecurity with experience in Python, Java, Kotlin, and UI/UX design. I combine security with creativity to build modern solutions that are both robust and user-friendly.
+                </p>
+                <p class="text-lg md:text-xl leading-relaxed">
+                    My passion lies in creating digital experiences that prioritize security without compromising on aesthetics and functionality. I believe that the best solutions emerge when technology and design work in harmony.
+                </p>
+                
+                <div class="flex flex-wrap justify-center mt-10 gap-4">
+                    <a href="#" class="neon-button w-14 h-14 rounded-full flex items-center justify-center text-xl">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="neon-button w-14 h-14 rounded-full flex items-center justify-center text-xl">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="neon-button w-14 h-14 rounded-full flex items-center justify-center text-xl">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="neon-button px-6 py-3 rounded-full font-medium flex items-center">
+                        <i class="far fa-file-alt mr-2"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 bg-gradient-to-b from-dark-bg to-[#0c1120] relative">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">My Skills</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Skill Card 1 -->
+                <div class="skill-card glass-card p-6 text-center cursor-pointer">
+                    <div class="skill-icon text-4xl mb-4 text-neon-blue transition-transform duration-300">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Cybersecurity</h3>
+                    <p class="text-sm opacity-80">Network security, threat analysis, vulnerability assessment</p>
+                </div>
+                
+                <!-- Skill Card 2 -->
+                <div class="skill-card glass-card p-6 text-center cursor-pointer">
+                    <div class="skill-icon text-4xl mb-4 text-neon-blue transition-transform duration-300">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Python</h3>
+                    <p class="text-sm opacity-80">Scripting, automation, data analysis, Flask/Django</p>
+                </div>
+                
+                <!-- Skill Card 3 -->
+                <div class="skill-card glass-card p-6 text-center cursor-pointer">
+                    <div class="skill-icon text-4xl mb-4 text-neon-blue transition-transform duration-300">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Java</h3>
+                    <p class="text-sm opacity-80">Enterprise applications, Android development</p>
+                </div>
+                
+                <!-- Skill Card 4 -->
+                <div class="skill-card glass-card p-6 text-center cursor-pointer">
+                    <div class="skill-icon text-4xl mb-4 text-neon-blue transition-transform duration-300">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Kotlin</h3>
+                    <p class="text-sm opacity-80">Android app development, modern mobile solutions</p>
+                </div>
+                
+                <!-- Skill Card 5 -->
+                <div class="skill-card glass-card p-6 text-center cursor-pointer">
+                    <div class="skill-icon text-4xl mb-4 text-neon-blue transition-transform duration-300">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">UI/UX Design</h3>
+                    <p class="text-sm opacity-80">User-centered design, prototyping, usability testing</p>
+                </div>
+                
+                <!-- Skill Card 6 -->
+                <div class="skill-card glass-card p-6 text-center cursor-pointer">
+                    <div class="skill-icon text-4xl mb-4 text-neon-blue transition-transform duration-300">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Database</h3>
+                    <p class="text-sm opacity-80">SQL, NoSQL, data modeling, security</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20 px-4 relative bg-gradient-to-b from-[#0c1120] to-dark-bg">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Certificates & Achievements</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certificate 1 -->
+                <div class="certificate-card glass-card overflow-hidden cursor-pointer relative group">
+                    <div class="h-64 bg-gradient-to-br from-neon-blue to-neon-teal opacity-20 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-6xl text-white opacity-30 group-hover:opacity-50 transition-opacity"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-white">Cybersecurity Career</h3>
+                        <p class="text-sm opacity-80 mb-4">Professional development in cybersecurity</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Cybersecurity</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Career Development</span>
+                        </div>
+                    </div>
+                    <div class="certificate-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10 group-hover:opacity-100 group-hover:translate-y-0">
+                        <h3 class="text-xl font-semibold mb-2">Cybersecurity Career</h3>
+                        <p class="text-sm mb-4">Professional certification demonstrating expertise in cybersecurity fundamentals and career development.</p>
+                        <button onclick="openCertificate('../certificates/cybersecurity career.jpg')" class="neon-button text-center py-2 rounded-full">
+                            <i class="fas fa-eye mr-2"></i>View Certificate
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Certificate 2 -->
+                <div class="certificate-card glass-card overflow-hidden cursor-pointer relative group">
+                    <div class="h-64 bg-gradient-to-br from-purple-500 to-indigo-700 opacity-20 flex items-center justify-center">
+                        <i class="fas fa-robot text-6xl text-white opacity-30 group-hover:opacity-50 transition-opacity"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-white">How AI Driven</h3>
+                        <p class="text-sm opacity-80 mb-4">AI-driven technology and applications</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Artificial Intelligence</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Technology</span>
+                        </div>
+                    </div>
+                    <div class="certificate-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10 group-hover:opacity-100 group-hover:translate-y-0">
+                        <h3 class="text-xl font-semibold mb-2">How AI Driven</h3>
+                        <p class="text-sm mb-4">Comprehensive understanding of AI-driven technologies and their practical applications in modern systems.</p>
+                        <button onclick="openCertificate('../certificates/how ai driven.png')" class="neon-button text-center py-2 rounded-full">
+                            <i class="fas fa-eye mr-2"></i>View Certificate
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Certificate 3 -->
+                <div class="certificate-card glass-card overflow-hidden cursor-pointer relative group">
+                    <div class="h-64 bg-gradient-to-br from-teal-400 to-green-500 opacity-20 flex items-center justify-center">
+                        <i class="fas fa-lock text-6xl text-white opacity-30 group-hover:opacity-50 transition-opacity"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-white">AI Security Integration</h3>
+                        <p class="text-sm opacity-80 mb-4">Security risks in AI integration</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">AI Security</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Risk Assessment</span>
+                        </div>
+                    </div>
+                    <div class="certificate-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10 group-hover:opacity-100 group-hover:translate-y-0">
+                        <h3 class="text-xl font-semibold mb-2">Security Risks in AI Integration</h3>
+                        <p class="text-sm mb-4">Specialized knowledge in identifying and mitigating security risks when integrating AI technologies.</p>
+                        <button onclick="openCertificate('../certificates/security rish to consider with AI integration.png')" class="neon-button text-center py-2 rounded-full">
+                            <i class="fas fa-eye mr-2"></i>View Certificate
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Certificate 4 -->
+                <div class="certificate-card glass-card overflow-hidden cursor-pointer relative group">
+                    <div class="h-64 bg-gradient-to-br from-pink-500 to-rose-500 opacity-20 flex items-center justify-center">
+                        <i class="fas fa-paint-brush text-6xl text-white opacity-30 group-hover:opacity-50 transition-opacity"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-white">UI/UX Design</h3>
+                        <p class="text-sm opacity-80 mb-4">User interface and experience design</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">UI/UX Design</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">User Experience</span>
+                        </div>
+                    </div>
+                    <div class="certificate-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10 group-hover:opacity-100 group-hover:translate-y-0">
+                        <h3 class="text-xl font-semibold mb-2">UI/UX Design Certification</h3>
+                        <p class="text-sm mb-4">Professional certification in user interface and user experience design principles, prototyping, and usability testing methodologies.</p>
+                        <button onclick="openCertificate('../certificates/UI UX Certificate.jpg')" class="neon-button text-center py-2 rounded-full">
+                            <i class="fas fa-eye mr-2"></i>View Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">My Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card glass-card overflow-hidden cursor-pointer relative">
+                    <div class="h-48 bg-gradient-to-r from-neon-blue to-neon-teal opacity-30 flex items-center justify-center">
+                        <i class="fas fa-dice text-6xl text-white opacity-50"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Lucky Guess</h3>
+                        <p class="text-sm opacity-80 mb-4">Number guessing game with customizable settings</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Python</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Team Project</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">2023-2024</span>
+                        </div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10">
+                        <h3 class="text-xl font-semibold mb-2">Lucky Guess</h3>
+                        <p class="text-sm mb-4">A number guessing game developed with Python. Players guess a randomly generated number with customizable range and guess limits through settings.</p>
+                        <a href="#" class="neon-button text-center py-2 rounded-full">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="project-card glass-card overflow-hidden cursor-pointer relative">
+                    <div class="h-48 bg-gradient-to-r from-purple-500 to-indigo-700 opacity-30 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-6xl text-white opacity-50"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">GPA Guru</h3>
+                        <p class="text-sm opacity-80 mb-4">Grade recommendation and conversion system</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Java</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Solo Project</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">2023-2024</span>
+                        </div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10">
+                        <h3 class="text-xl font-semibold mb-2">GPA Guru</h3>
+                        <p class="text-sm mb-4">My first solo project built with Java. This application recommends passing grades for upcoming assessments and converts grades between 5-point scale and grade point scale systems.</p>
+                        <a href="#" class="neon-button text-center py-2 rounded-full">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="project-card glass-card overflow-hidden cursor-pointer relative">
+                    <div class="h-48 bg-gradient-to-r from-teal-400 to-green-500 opacity-30 flex items-center justify-center">
+                        <i class="fas fa-parking text-6xl text-white opacity-50"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Find My Spot</h3>
+                        <p class="text-sm opacity-80 mb-4">Campus parking space locator</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Mobile App</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Location Services</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">2024-2025</span>
+                        </div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10">
+                        <h3 class="text-xl font-semibold mb-2">Find My Spot</h3>
+                        <p class="text-sm mb-4">A campus parking space locator application that helps students and staff find available parking spots for both vehicles and motorcycles.</p>
+                        <a href="#" class="neon-button text-center py-2 rounded-full">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project Card 4 -->
+                <div class="project-card glass-card overflow-hidden cursor-pointer relative">
+                    <div class="h-48 bg-gradient-to-r from-pink-500 to-rose-500 opacity-30 flex items-center justify-center">
+                        <i class="fas fa-cut text-6xl text-white opacity-50"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Diva Salon App</h3>
+                        <p class="text-sm opacity-80 mb-4">Salon appointment booking system</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Mobile App</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Booking System</span>
+                            <span class="text-xs px-3 py-1 bg-glass rounded-full">2024-2025</span>
+                        </div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10">
+                        <h3 class="text-xl font-semibold mb-2">Diva Salon App</h3>
+                        <p class="text-sm mb-4">A salon appointment booking application that allows customers to schedule and manage their salon appointments efficiently.</p>
+                        <a href="#" class="neon-button text-center py-2 rounded-full">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 relative bg-gradient-to-b from-[#0c1120] to-dark-bg">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Get In Touch</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Contact Information -->
+                <div class="glass-card p-8 h-full">
+                    <h3 class="text-2xl font-semibold text-neon-blue mb-8">Connect With Me</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-neon-blue mt-1 mr-4">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-white mb-1">LinkedIn</h4>
+                                <a href="https://linkedin.com/in/john-aaron-junio" target="_blank" class="text-gray-300 hover:text-neon-blue transition-colors duration-300">John Aaron Junio</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-neon-blue mt-1 mr-4">
+                                <i class="fab fa-github text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-white mb-1">GitHub</h4>
+                                <a href="https://github.com/john-aaron-junio" target="_blank" class="text-gray-300 hover:text-neon-blue transition-colors duration-300">@john-aaron-junio</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-neon-blue mt-1 mr-4">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-white mb-1">Email</h4>
+                                <p class="text-gray-300">john.aaron.junio@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-neon-blue mt-1 mr-4">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-white mb-1">Twitter</h4>
+                                <a href="https://twitter.com/john_aaron_dev" target="_blank" class="text-gray-300 hover:text-neon-blue transition-colors duration-300">@john_aaron_dev</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-neon-blue mt-1 mr-4">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-white mb-1">Location</h4>
+                                <p class="text-gray-300">Tarlac, Philippines</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-neon-blue mt-1 mr-4">
+                                <i class="fas fa-briefcase text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-white mb-1">Available For</h4>
+                                <p class="text-gray-300">Freelance Projects • Full-time Positions</p>
+                                <p class="text-gray-300">Cybersecurity • Mobile Development</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="glass-card p-8">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-white">Your Name</label>
+                            <input type="text" class="w-full p-4 rounded-lg focus:ring-2 focus:ring-neon-blue focus:outline-none transition-all bg-glass border border-gray-600 text-white placeholder-gray-400">
+                        </div>
+                        
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-white">Your Email</label>
+                            <input type="email" class="w-full p-4 rounded-lg focus:ring-2 focus:ring-neon-blue focus:outline-none transition-all bg-glass border border-gray-600 text-white placeholder-gray-400">
+                        </div>
+                        
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-white">Your Message</label>
+                            <textarea rows="5" class="w-full p-4 rounded-lg focus:ring-2 focus:ring-neon-blue focus:outline-none transition-all bg-glass border border-gray-600 text-white placeholder-gray-400"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="neon-button w-full py-4 rounded-lg font-semibold text-lg mt-6">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 text-center text-sm opacity-70">
+        <p>© 2024 John Aaron Junio. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Custom cursor
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        
+        let mouseX = 0;
+        let mouseY = 0;
+        let dotX = 0;
+        let dotY = 0;
+        let outlineX = 0;
+        let outlineY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animateCursor() {
+            // Smooth dot movement
+            dotX += (mouseX - dotX) * 0.5;
+            dotY += (mouseY - dotY) * 0.5;
+            
+            // Smooth outline movement (slightly slower)
+            outlineX += (mouseX - outlineX) * 0.5;
+            outlineY += (mouseY - outlineY) * 0.5;
+            
+            cursorDot.style.left = `${dotX - 4}px`;
+            cursorDot.style.top = `${dotY - 4}px`;
+            
+            cursorOutline.style.left = `${outlineX - 16}px`;
+            cursorOutline.style.top = `${outlineY - 16}px`;
+            
+            requestAnimationFrame(animateCursor);
+        }
+        
+        animateCursor();
+        
+        // Add hover class to cursor when over interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-card, input, textarea');
+        
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorDot.classList.add('hover');
+                cursorOutline.classList.add('hover');
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                cursorDot.classList.remove('hover');
+                cursorOutline.classList.remove('hover');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Particle background for hero section
+        function createParticles() {
+            const hero = document.getElementById('hero');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation
+                particle.style.animation = `float ${Math.random() * 6 + 4}s ease-in-out infinite`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                hero.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // Add scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.glass-card, .skill-card, .project-card');
+            
+            elements.forEach(el => {
+                const elementPosition = el.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    el.style.opacity = 1;
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initialize elements with opacity 0 and slight offset
+        document.querySelectorAll('.glass-card, .skill-card, .project-card').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        // Run on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Certificate viewer function
+        function openCertificate(certificatePath) {
+            // Create modal overlay
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50';
+            modal.onclick = () => modal.remove();
+            
+            // Create modal content
+            const modalContent = document.createElement('div');
+            modalContent.className = 'max-w-4xl max-h-full p-4';
+            modalContent.onclick = (e) => e.stopPropagation();
+            
+            // Create image
+            const img = document.createElement('img');
+            img.src = certificatePath;
+            img.className = 'w-full h-auto max-h-[90vh] object-contain rounded-lg shadow-2xl';
+            img.alt = 'Certificate';
+            
+            // Create close button
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+            closeBtn.className = 'absolute top-4 right-4 text-white text-2xl hover:text-neon-blue transition-colors duration-300 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center';
+            closeBtn.onclick = () => modal.remove();
+            
+            modalContent.appendChild(img);
+            modalContent.appendChild(closeBtn);
+            modal.appendChild(modalContent);
+            document.body.appendChild(modal);
+        }
+    </script>
+</body>
+</html>
