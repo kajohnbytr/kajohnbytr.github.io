@@ -1,0 +1,41 @@
+node_modules/
+dist/
+.vite/
+*.log
+
+# Environment variables and local configuration
+.env
+.env.*
+!.env.example
+.npmrc
+.yarnrc
+
+# Credentials, tokens, certificates, and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+credentials.json
+credentials.*.json
+service-account*.json
+secrets.json
+secrets.*.json
+
+# Explicitly private documents and local-only assets
+private/
+*.private.*
+CV-private.*
+Resume-private.*
+
+# Test, editor, and operating-system artifacts
+coverage/
+.eslintcache
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+*.bak
