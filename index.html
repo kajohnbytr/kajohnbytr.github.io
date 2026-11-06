@@ -159,96 +159,109 @@
     <!-- Certificates Section -->
     <section id="certificates" class="py-20 px-4 relative bg-gradient-to-b from-[#0c1120] to-dark-bg">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Certificates & Achievements</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Certificate 1 -->
-                <div class="certificate-card glass-card overflow-hidden cursor-pointer relative group">
-                    <div class="h-64 bg-gradient-to-br from-neon-blue to-neon-teal opacity-20 flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-6xl text-white opacity-30 group-hover:opacity-50 transition-opacity"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-white">Cybersecurity Career</h3>
-                        <p class="text-sm opacity-80 mb-4">Professional development in cybersecurity</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Cybersecurity</span>
-                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Career Development</span>
-                        </div>
-                    </div>
-                    <div class="certificate-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10 group-hover:opacity-100 group-hover:translate-y-0">
-                        <h3 class="text-xl font-semibold mb-2">Cybersecurity Career</h3>
-                        <p class="text-sm mb-4">Professional certification demonstrating expertise in cybersecurity fundamentals and career development.</p>
-                        <button onclick="openCertificate('cybersecurity career.jpg')" class="neon-button text-center py-2 rounded-full">
-                            <i class="fas fa-eye mr-2"></i>View Certificate
-                        </button>
+            <div class="certificate-heading">
+                <div>
+                    <p class="section-kicker">Verified learning & professional credentials</p>
+                    <h2 class="text-4xl font-bold gradient-text">Certificates & Achievements</h2>
+                </div>
+                <p class="certificate-intro">A focused record of continuous learning across cybersecurity, artificial intelligence, and experience design.</p>
+            </div>
+
+            <article class="featured-certificate glass-card" aria-labelledby="ccp-title">
+                <div class="featured-certificate__visual" aria-hidden="true">
+                    <div class="certificate-emblem"><i class="fas fa-shield-halved"></i></div>
+                    <span class="certificate-status"><i class="fas fa-circle-check"></i> Digitally verified</span>
+                </div>
+                <div class="featured-certificate__content">
+                    <span class="professional-label">Professional certificate</span>
+                    <h3 id="ccp-title">Certified Cybersecurity Professional (CCP)</h3>
+                    <p>Completed the Appkademiya cybersecurity certification module, demonstrating focused professional development in core cybersecurity practices.</p>
+                    <dl class="certificate-meta">
+                        <div><dt>Issuer</dt><dd>Appkademiya</dd></div>
+                        <div><dt>Issued</dt><dd>October 19, 2026</dd></div>
+                        <div><dt>Status</dt><dd>Digitally Verified</dd></div>
+                    </dl>
+                    <div class="certificate-actions">
+                        <button type="button" class="neon-button certificate-button" data-certificate="certificates/Appkademiya.pdf" data-title="Certified Cybersecurity Professional (CCP)"><i class="fas fa-eye" aria-hidden="true"></i> View credential</button>
+                        <a class="certificate-link" href="https://appkademiya.online/verify/CERT-CCP-CYBERSECURITY-PROFESSIONAL-20261019-00AA786A32CC" target="_blank" rel="noopener">Verify Certificate <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                     </div>
                 </div>
+            </article>
+
+            <div class="certificate-grid">
+                <!-- Certificate 1 -->
+                <article class="certificate-card glass-card">
+                    <img src="certificates/cybersecurity career.jpg" alt="Cybersecurity Career certificate preview" loading="lazy">
+                    <div class="certificate-card__content">
+                        <span class="certificate-category">Cybersecurity</span>
+                        <h3>Cybersecurity Career</h3>
+                        <p>Professional development and career preparation in cybersecurity.</p>
+                        <button type="button" class="certificate-card__action" data-certificate="certificates/cybersecurity career.jpg" data-title="Cybersecurity Career certificate">View certificate <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                    </div>
+                </article>
                 
                 <!-- Certificate 2 -->
-                <div class="certificate-card glass-card overflow-hidden cursor-pointer relative group">
-                    <div class="h-64 bg-gradient-to-br from-purple-500 to-indigo-700 opacity-20 flex items-center justify-center">
-                        <i class="fas fa-robot text-6xl text-white opacity-30 group-hover:opacity-50 transition-opacity"></i>
+                <article class="certificate-card glass-card">
+                    <img src="certificates/how ai driven.png" alt="How AI Driven certificate preview" loading="lazy">
+                    <div class="certificate-card__content">
+                        <span class="certificate-category">Artificial intelligence</span>
+                        <h3>How AI-Driven Technology Works</h3>
+                        <p>Practical learning in AI-driven technology and modern applications.</p>
+                        <button type="button" class="certificate-card__action" data-certificate="certificates/how ai driven.png" data-title="How AI-Driven Technology Works certificate">View certificate <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-white">How AI Driven</h3>
-                        <p class="text-sm opacity-80 mb-4">AI-driven technology and applications</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Artificial Intelligence</span>
-                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Technology</span>
-                        </div>
-                    </div>
-                    <div class="certificate-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10 group-hover:opacity-100 group-hover:translate-y-0">
-                        <h3 class="text-xl font-semibold mb-2">How AI Driven</h3>
-                        <p class="text-sm mb-4">Comprehensive understanding of AI-driven technologies and their practical applications in modern systems.</p>
-                        <button onclick="openCertificate('how ai driven.png')" class="neon-button text-center py-2 rounded-full">
-                            <i class="fas fa-eye mr-2"></i>View Certificate
-                        </button>
-                    </div>
-                </div>
+                </article>
                 
                 <!-- Certificate 3 -->
-                <div class="certificate-card glass-card overflow-hidden cursor-pointer relative group">
-                    <div class="h-64 bg-gradient-to-br from-teal-400 to-green-500 opacity-20 flex items-center justify-center">
-                        <i class="fas fa-lock text-6xl text-white opacity-30 group-hover:opacity-50 transition-opacity"></i>
+                <article class="certificate-card glass-card">
+                    <img src="certificates/security rish to consider with AI integration.png" alt="Security risks in AI integration certificate preview" loading="lazy">
+                    <div class="certificate-card__content">
+                        <span class="certificate-category">AI security</span>
+                        <h3>Security Risks in AI Integration</h3>
+                        <p>Identifying and evaluating security risks in AI-enabled systems.</p>
+                        <button type="button" class="certificate-card__action" data-certificate="certificates/security rish to consider with AI integration.png" data-title="Security Risks in AI Integration certificate">View certificate <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-white">AI Security Integration</h3>
-                        <p class="text-sm opacity-80 mb-4">Security risks in AI integration</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-3 py-1 bg-glass rounded-full">AI Security</span>
-                            <span class="text-xs px-3 py-1 bg-glass rounded-full">Risk Assessment</span>
-                        </div>
-                    </div>
-                    <div class="certificate-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10 group-hover:opacity-100 group-hover:translate-y-0">
-                        <h3 class="text-xl font-semibold mb-2">Security Risks in AI Integration</h3>
-                        <p class="text-sm mb-4">Specialized knowledge in identifying and mitigating security risks when integrating AI technologies.</p>
-                        <button onclick="openCertificate('security rish to consider with AI integration.png')" class="neon-button text-center py-2 rounded-full">
-                            <i class="fas fa-eye mr-2"></i>View Certificate
-                        </button>
-                    </div>
-                </div>
+                </article>
                 
                 <!-- Certificate 4 -->
-                <div class="certificate-card glass-card overflow-hidden cursor-pointer relative group">
-                    <div class="h-64 bg-gradient-to-br from-pink-500 to-rose-500 opacity-20 flex items-center justify-center">
-                        <i class="fas fa-paint-brush text-6xl text-white opacity-30 group-hover:opacity-50 transition-opacity"></i>
+                <article class="certificate-card glass-card">
+                    <img src="certificates/UI UX Certificate.jpg" alt="UI and UX Design certificate preview" loading="lazy">
+                    <div class="certificate-card__content">
+                        <span class="certificate-category">Product design</span>
+                        <h3>UI/UX Design</h3>
+                        <p>User-centered interface design, prototyping, and usability principles.</p>
+                        <button type="button" class="certificate-card__action" data-certificate="certificates/UI UX Certificate.jpg" data-title="UI/UX Design certificate">View certificate <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-white">UI/UX Design</h3>
-                        <p class="text-sm opacity-80 mb-4">User interface and experience design</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-3 py-1 bg-glass rounded-full">UI/UX Design</span>
-                            <span class="text-xs px-3 py-1 bg-glass rounded-full">User Experience</span>
-                        </div>
+                </article>
+
+                <article class="certificate-card glass-card">
+                    <img src="certificates/HackforGov4.jpg" alt="HackforGov 4 certificate of participation preview" loading="lazy">
+                    <div class="certificate-card__content">
+                        <span class="certificate-category">Cybersecurity competition</span>
+                        <h3>HackforGov 4</h3>
+                        <p>Active participant in DICT Region I's 2025 Cyber Guardians cybersecurity event.</p>
+                        <button type="button" class="certificate-card__action" data-certificate="certificates/HackforGov4.jpg" data-title="HackforGov 4 certificate of participation">View certificate <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
-                    <div class="certificate-overlay absolute inset-0 bg-gradient-to-t from-dark-bg to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-10 group-hover:opacity-100 group-hover:translate-y-0">
-                        <h3 class="text-xl font-semibold mb-2">UI/UX Design Certification</h3>
-                        <p class="text-sm mb-4">Professional certification in user interface and user experience design principles, prototyping, and usability testing methodologies.</p>
-                        <button onclick="openCertificate('UI UX Certificate.jpg')" class="neon-button text-center py-2 rounded-full">
-                            <i class="fas fa-eye mr-2"></i>View Certificate
-                        </button>
+                </article>
+
+                <article class="certificate-card glass-card">
+                    <img src="certificates/HackforGov5.jpg" alt="HackforGov 5 certificate of participation preview" loading="lazy">
+                    <div class="certificate-card__content">
+                        <span class="certificate-category">Cybersecurity competition</span>
+                        <h3>HackforGov 5</h3>
+                        <p>Represented UPANG Team A in DICT Region I's 2026 digital defense competition.</p>
+                        <button type="button" class="certificate-card__action" data-certificate="certificates/HackforGov5.jpg" data-title="HackforGov 5 certificate of participation">View certificate <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
-                </div>
+                </article>
+
+                <article class="certificate-card glass-card">
+                    <img src="certificates/Cert of Appearance.jpg" alt="HackforGov 5 certificate of appearance preview" loading="lazy">
+                    <div class="certificate-card__content">
+                        <span class="certificate-category">Official recognition</span>
+                        <h3>HackforGov 5 - Certificate of Appearance</h3>
+                        <p>Official recognition of attendance at the 2026 Region I competition in Ilocos Sur.</p>
+                        <button type="button" class="certificate-card__action" data-certificate="certificates/Cert of Appearance.jpg" data-title="HackforGov 5 certificate of appearance">View certificate <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -439,7 +452,7 @@
     
     <!-- Footer -->
     <footer class="py-8 text-center text-sm opacity-70">
-        <p>© 2024 John Aaron Junio. All rights reserved.</p>
+        <p>© 2026 John Aaron Junio. All rights reserved.</p>
     </footer>
     
     <script>

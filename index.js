@@ -30,3 +30,69 @@ tailwind.config = {
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    let certificateTrigger = null;
+
+    const closeCertificateModal = () => {
+        const modal = document.querySelector('.certificate-modal');
+        if (!modal) return;
+
+        modal.remove();
+        document.body.style.overflow = '';
+        certificateTrigger?.focus();
+        certificateTrigger = null;
+    };
+
+    const openCertificateModal = (path, title, trigger) => {
+        closeCertificateModal();
+        certificateTrigger = trigger;
+
+        const isPdf = path.toLowerCase().endsWith('.pdf');
+        const modal = document.createElement('div');
+        modal.className = 'certificate-modal';
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('aria-labelledby', 'certificate-modal-title');
+
+        const viewer = isPdf
+            ? `<iframe src="${path}#view=FitH" title="${title}"></iframe>`
+            : `<img src="${path}" alt="${title}">`;
+
+        modal.innerHTML = `
+            <div class="certificate-modal__dialog">
+                <div class="certificate-modal__header">
+                    <h2 id="certificate-modal-title" class="certificate-modal__title">${title}</h2>
+                    <button type="button" class="certificate-modal__close" aria-label="Close certificate viewer">
+                        <i class="fas fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="certificate-modal__body">${viewer}</div>
+            </div>`;
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) closeCertificateModal();
+        });
+        modal.querySelector('.certificate-modal__close').addEventListener('click', closeCertificateModal);
+        document.body.appendChild(modal);
+        document.body.style.overflow = 'hidden';
+        modal.querySelector('.certificate-modal__close').focus();
+    };
+
+    document.querySelectorAll('[data-certificate]').forEach((button) => {
+        button.addEventListener('click', () => {
+            openCertificateModal(button.dataset.certificate, button.dataset.title || 'Certificate', button);
+        });
+    });
+
+    document.addEventListener('keydown', (event) => {
+        const modal = document.querySelector('.certificate-modal');
+        if (!modal) return;
+
+        if (event.key === 'Escape') closeCertificateModal();
+        if (event.key === 'Tab') {
+            event.preventDefault();
+            modal.querySelector('.certificate-modal__close').focus();
+        }
+    });
+});
