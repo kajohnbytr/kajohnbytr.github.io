@@ -625,11 +625,12 @@
         }
 
         .site-header__inner {
+            position: relative;
             display: flex;
             max-width: 1152px;
             min-height: 72px;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             margin: 0 auto;
             padding: 0 1rem;
         }
@@ -638,7 +639,7 @@
         .site-nav { display: flex; align-items: center; gap: 1.65rem; }
         .site-nav a { color: #cbd5e1; font-size: 0.88rem; font-weight: 500; transition: color 0.2s ease; }
         .site-nav a:hover { color: #67e8f9; }
-        .menu-toggle { display: none; width: 44px; height: 44px; color: #fff; font-size: 1.15rem; border-radius: 10px; }
+        .menu-toggle { position: absolute; right: 1rem; display: none; width: 44px; height: 44px; color: #fff; font-size: 1.15rem; border-radius: 10px; }
 
         .theme-transition-overlay {
             position: fixed;
@@ -669,10 +670,8 @@
             padding: 7rem 1rem 4rem;
         }
 
-        .hero-section .grid-pattern { position: absolute; inset: 0; opacity: 0.55; }
-        .hacker-glitch-bg { position: absolute; inset: 0; z-index: 0; opacity: 0.5; }
-        .hacker-glitch-bg::after { position: absolute; inset: 0; content: ''; pointer-events: none; background: linear-gradient(180deg, rgba(0, 7, 3, 0.12), rgba(0, 7, 3, 0.7)); }
-        .hero-orb { position: absolute; width: 340px; height: 340px; background: #00f7ff; border-radius: 50%; filter: blur(140px); opacity: 0.09; }
+        .hero-section .grid-pattern { position: absolute; inset: 0; z-index: 0; opacity: 0.55; }
+        .hero-orb { position: absolute; z-index: 0; width: 340px; height: 340px; background: #00f7ff; border-radius: 50%; filter: blur(140px); opacity: 0.09; }
         .hero-orb--one { top: 18%; left: 5%; }
         .hero-orb--two { right: 4%; bottom: 12%; background: #8b5cf6; }
 
@@ -753,6 +752,27 @@
         }
 
         [data-theme='hacker'] body { background: linear-gradient(145deg, #010704, #020d07 48%, #000503); }
+        [data-theme='hacker'] .hero-section {
+            background:
+                radial-gradient(circle at 50% 38%, rgba(20, 110, 52, 0.25), transparent 42%),
+                linear-gradient(145deg, #020d06, #061a0c 52%, #010704);
+        }
+        [data-theme='hacker'] .hero-section > .grid-pattern {
+            display: block;
+            opacity: 0.72;
+            background-image:
+                linear-gradient(rgba(57, 255, 136, 0.13) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 255, 136, 0.13) 1px, transparent 1px),
+                linear-gradient(rgba(57, 255, 136, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 255, 136, 0.035) 1px, transparent 1px);
+            background-position: 0 0, 0 0, 0 0, 0 0;
+            background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+            animation: hacker-grid-drift 14s linear infinite;
+            mask-image: radial-gradient(circle at center, #000 30%, rgba(0, 0, 0, 0.78) 68%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, #000 30%, rgba(0, 0, 0, 0.78) 68%, transparent 100%);
+        }
+        [data-theme='hacker'] .hero-section > .hero-orb { display: none; }
+        [data-theme='hacker'] .hero-card { background: rgba(2, 17, 8, 0.76); border-color: rgba(57, 255, 136, 0.22); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
         [data-theme='hacker'] .site-header { background: rgba(0, 9, 4, 0.88); border-bottom-color: rgba(57, 255, 136, 0.2); }
         [data-theme='hacker'] .brand,
         [data-theme='hacker'] .gradient-text { background: linear-gradient(90deg, #eafff1, #39ff88); background-clip: text; -webkit-background-clip: text; }
@@ -786,6 +806,15 @@
         [data-theme='hacker'] .cursor-outline { border-color: rgba(57, 255, 136, 0.58); }
         [data-theme='hacker'] button:focus-visible,
         [data-theme='hacker'] a:focus-visible { outline-color: #62ff9e; }
+
+        @keyframes hacker-grid-drift {
+            from { background-position: 0 0, 0 0, 0 0, 0 0; }
+            to { background-position: 80px 80px, 80px 80px, 20px 20px, 20px 20px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            [data-theme='hacker'] .hero-section > .grid-pattern { animation: none; }
+        }
 
         @media (max-width: 900px) {
             .site-nav { position: absolute; top: 72px; right: 1rem; left: 1rem; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 0.65rem; background: rgba(10, 15, 31, 0.98); border: 1px solid rgba(103, 232, 249, 0.2); border-radius: 14px; box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4); }

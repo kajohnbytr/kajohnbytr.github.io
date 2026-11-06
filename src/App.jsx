@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { SiBlender, SiFigma, SiLaravel, SiMysql, SiReact, SiWireshark } from 'react-icons/si'
 import AnimatedContent from './components/AnimatedContent/AnimatedContent.jsx'
-import LetterGlitch from './components/LetterGlitch/LetterGlitch.jsx'
 import LogoLoop from './components/LogoLoop/LogoLoop.jsx'
 import TechText from './components/TechText/TechText.jsx'
 
@@ -303,7 +302,6 @@ export default function App() {
       <div className="theme-transition-overlay" aria-hidden="true" />
       <header className="site-header">
         <div className="site-header__inner">
-          <a href="#hero" className="brand">John Aaron Junio</a>
           <button className="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}><i className={`fas ${menuOpen ? 'fa-times' : 'fa-bars'}`} /></button>
           <nav className={menuOpen ? 'site-nav is-open' : 'site-nav'} aria-label="Main navigation">
             <a href="#hero" onClick={() => setMenuOpen(false)}>Home</a>
@@ -314,7 +312,6 @@ export default function App() {
 
       <main>
         <section id="hero" className="hero-section">
-          {hackerMode && <div className="hacker-glitch-bg" aria-hidden="true"><LetterGlitch glitchColors={['#045d00', '#00ff8d', '#7dffb2']} glitchAmount={0.48} speed={0.8} flow={0.42} clickEffect="tear" baseColor="#25ff60" fontFamily="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" /></div>}
           <div className="grid-pattern" />
           <div className="hero-orb hero-orb--one" /><div className="hero-orb hero-orb--two" />
           <div className="glass-card hero-card">
