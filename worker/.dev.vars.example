@@ -1,0 +1,3 @@
+OTP_PEPPER=replace_with_a_long_random_secret
+GAS_WEB_APP_URL=https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec
+GAS_SHARED_SECRET=replace_with_a_different_long_random_secret

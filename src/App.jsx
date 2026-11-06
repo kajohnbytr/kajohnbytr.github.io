@@ -42,9 +42,9 @@ const techLogos = [
   { node: <SiFigma />, title: 'Figma', hoverColor: '#a259ff' },
   { node: <SiBlender />, title: 'Blender', hoverColor: '#f5792a' },
   { node: <SiWireshark />, title: 'Wireshark', hoverColor: '#1679a7' },
-  { node: <span className="tool-wordmark">Ps</span>, title: 'Photoshop', hoverColor: '#31a8ff' },
-  { node: <span className="tool-wordmark">Nmap</span>, title: 'Nmap', hoverColor: '#67e8f9' },
-  { node: <span className="tool-wordmark">Canva</span>, title: 'Canva', hoverColor: '#7d2ae8' },
+  { src: '/logos/photoshop.svg', alt: 'Adobe Photoshop', title: 'Photoshop' },
+  { src: '/logos/nmap.svg', alt: 'Nmap', title: 'Nmap' },
+  { src: '/logos/canva.svg', alt: 'Canva', title: 'Canva' },
 ]
 
 function CustomCursor() {
@@ -96,12 +96,21 @@ function CertificateModal({ certificate, onClose }) {
 
 function ContactForm() {
   const openedAt = useRef(0)
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '', _honey: '' })
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '', verificationCode: '', _honey: '' })
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState(null)
   const [sending, setSending] = useState(false)
+  const [requestingCode, setRequestingCode] = useState(false)
+  const [codeRequested, setCodeRequested] = useState(false)
+  const [cooldown, setCooldown] = useState(0)
+  const contactApiUrl = (import.meta.env.VITE_CONTACT_API_URL || '').replace(/\/$/, '')
 
   useEffect(() => { openedAt.current = Date.now() }, [])
+  useEffect(() => {
+    if (cooldown <= 0) return undefined
+    const timer = window.setInterval(() => setCooldown((seconds) => Math.max(0, seconds - 1)), 1000)
+    return () => window.clearInterval(timer)
+  }, [cooldown])
 
   const normalize = (value) => [...value]
     .filter((character) => {
@@ -119,14 +128,52 @@ function ContactForm() {
     const email = normalize(form.email)
     const subject = normalize(form.subject)
     const message = normalize(form.message)
+    const verificationCode = form.verificationCode.trim()
     if (!/^[\p{L}\p{M}][\p{L}\p{M} .'-]{1,79}$/u.test(name)) next.name = 'Enter a valid name using 2-80 characters.'
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) next.email = 'Enter a valid email address.'
     if (subject.length < 3 || subject.length > 120 || /[\r\n]/.test(subject)) next.subject = 'Use 3-120 characters without line breaks.'
     if (message.length < 10 || message.length > 2000) next.message = 'Use 10-2000 characters.'
+    if (!/^\d{6}$/.test(verificationCode)) next.verificationCode = 'Enter the six-digit code sent to your email.'
     for (const [key, value] of Object.entries({ name, email, subject, message })) if (suspicious(value)) next[key] = 'Remove unsafe markup, code, or excessive links.'
-    setForm((current) => ({ ...current, name, email, subject, message }))
+    setForm((current) => ({ ...current, name, email, subject, message, verificationCode }))
     setErrors(next)
     return Object.keys(next).length === 0
+  }
+
+  const requestCode = async () => {
+    setStatus(null)
+    const email = normalize(form.email).toLowerCase()
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
+      setErrors((current) => ({ ...current, email: 'Enter a valid email address first.' }))
+      return
+    }
+    if (!contactApiUrl) {
+      setStatus({ type: 'error', text: 'Email verification is not configured yet. Please use the email link instead.' })
+      return
+    }
+    if (form._honey || Date.now() - openedAt.current < 3000) {
+      setStatus({ type: 'error', text: 'Please wait a moment, then try again.' })
+      return
+    }
+
+    setRequestingCode(true)
+    setStatus({ type: 'info', text: 'Sending a verification code to your inbox...' })
+    try {
+      const response = await fetch(`${contactApiUrl}/api/request-code`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, website: form._honey }),
+      })
+      const result = await response.json().catch(() => null)
+      if (!response.ok) throw new Error(result?.message || 'Unable to send verification code.')
+      setForm((current) => ({ ...current, email, verificationCode: '' }))
+      setCodeRequested(true)
+      setCooldown(60)
+      setStatus({ type: 'success', text: 'Verification code sent. Check your inbox and spam folder; it expires in 10 minutes.' })
+    } catch (error) {
+      console.error('Verification request failed:', error)
+      setStatus({ type: 'error', text: error.message || 'Unable to send the verification code right now.' })
+    } finally { setRequestingCode(false) }
   }
 
   const submit = async (event) => {
@@ -141,16 +188,19 @@ function ContactForm() {
     setSending(true)
     setStatus({ type: 'info', text: 'Sending your message securely...' })
     try {
-      const response = await fetch('https://formsubmit.co/ajax/aronjunio02@gmail.com', {
+      if (!contactApiUrl) throw new Error('Contact service is not configured.')
+      const response = await fetch(`${contactApiUrl}/api/submit-message`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ ...form, _subject: `Portfolio inquiry: ${form.subject}`, _template: 'table', _blacklist: 'viagra, casino, crypto investment, guaranteed profit, click here now' }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, website: form._honey }),
       })
       const result = await response.json().catch(() => null)
-      if (!response.ok || result?.success === false || result?.success === 'false') throw new Error(result?.message || 'Submission failed')
+      if (!response.ok) throw new Error(result?.message || 'Submission failed')
       localStorage.setItem('portfolioContactLastSent', String(Date.now()))
-      setForm({ name: '', email: '', subject: '', message: '', _honey: '' })
-      setStatus({ type: 'success', text: 'Message sent successfully. I will get back to you soon.' })
+      setForm({ name: '', email: '', subject: '', message: '', verificationCode: '', _honey: '' })
+      setCodeRequested(false)
+      setCooldown(0)
+      setStatus({ type: 'success', text: 'Email verified and message sent successfully. I will get back to you soon.' })
     } catch (error) {
       console.error('Contact form submission failed:', error)
       setStatus({ type: 'error', text: 'Unable to send right now. Please email aronjunio02@gmail.com directly.' })
@@ -161,6 +211,7 @@ function ContactForm() {
     const { name, value } = event.target
     setForm((current) => ({ ...current, [name]: value }))
     setErrors((current) => ({ ...current, [name]: '' }))
+    if (name === 'email') setCodeRequested(false)
   }
 
   const field = (name, label, icon, placeholder, type = 'text') => (
@@ -172,10 +223,18 @@ function ContactForm() {
   )
 
   return (
-    <form id="contact-form" action="https://formsubmit.co/aronjunio02@gmail.com" method="POST" noValidate onSubmit={submit}>
+    <form id="contact-form" noValidate onSubmit={submit}>
       <div className="form-honeypot" aria-hidden="true"><label htmlFor="company-website">Leave empty</label><input id="company-website" name="_honey" value={form._honey} onChange={update} tabIndex="-1" autoComplete="off" /></div>
       {field('name', 'Your name', 'fa-user', 'e.g. Maria Santos')}
       {field('email', 'Email address', 'fa-envelope', 'you@example.com', 'email')}
+      <div className={`form-field verification-field ${errors.verificationCode ? 'has-error' : ''}`}>
+        <div className="verification-heading"><label htmlFor="contact-verificationCode">Email verification</label>{codeRequested && <span className="verification-badge"><i className="fas fa-circle-check" /> Code sent</span>}</div>
+        <div className="verification-row">
+          <div className="form-control"><i className="fas fa-key" aria-hidden="true" /><input id="contact-verificationCode" name="verificationCode" type="text" inputMode="numeric" autoComplete="one-time-code" value={form.verificationCode} onChange={update} placeholder="6-digit code" maxLength="6" required aria-invalid={Boolean(errors.verificationCode)} aria-describedby="verificationCode-error" /></div>
+          <button type="button" className="verification-button" onClick={requestCode} disabled={requestingCode || cooldown > 0}>{requestingCode ? 'Sending...' : cooldown > 0 ? `Resend in ${cooldown}s` : codeRequested ? 'Resend code' : 'Send code'}</button>
+        </div>
+        <p id="verificationCode-error" className="field-error" aria-live="polite">{errors.verificationCode}</p>
+      </div>
       {field('subject', 'Subject', 'fa-pen', 'Project inquiry')}
       <div className={`form-field ${errors.message ? 'has-error' : ''}`}>
         <label htmlFor="contact-message">Message</label>
@@ -184,7 +243,7 @@ function ContactForm() {
       </div>
       {status && <div className={`form-status is-visible is-${status.type}`} role="status" aria-live="polite">{status.text}</div>}
       <button id="contact-submit" type="submit" className={`neon-button contact-submit ${sending ? 'is-loading' : ''}`} disabled={sending}><span>{sending ? 'Sending securely...' : 'Send Message'}</span><i className="fas fa-paper-plane" aria-hidden="true" /></button>
-      <p className="form-privacy"><i className="fas fa-shield-halved" aria-hidden="true" /> Protected by validation, bot detection, throttling, and server-side spam filtering.</p>
+      <p className="form-privacy"><i className="fas fa-shield-halved" aria-hidden="true" /> Your email must be verified before delivery. Codes expire after 10 minutes and are never stored in plain text.</p>
     </form>
   )
 }

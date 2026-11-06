@@ -7,6 +7,8 @@ dist/
 .env
 .env.*
 !.env.example
+.dev.vars
+.wrangler/
 .npmrc
 .yarnrc
 

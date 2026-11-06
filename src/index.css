@@ -520,6 +520,22 @@
         .field-meta { display: flex; align-items: start; justify-content: space-between; gap: 1rem; }
         .field-meta span { padding-top: 0.35rem; color: #64748b; font-size: 0.74rem; white-space: nowrap; }
 
+        .verification-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .verification-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.75rem; }
+        .verification-badge { display: inline-flex; align-items: center; gap: 0.35rem; color: #6ee7b7; font-size: 0.72rem; font-weight: 700; }
+        .verification-button {
+            min-width: 130px;
+            padding: 0.75rem 1rem;
+            color: #06181c;
+            background: linear-gradient(135deg, #67e8f9, #2dd4bf);
+            border: 0;
+            border-radius: 12px;
+            font-weight: 800;
+            transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+        }
+        .verification-button:hover:not(:disabled) { filter: brightness(1.08); transform: translateY(-2px); }
+        .verification-button:disabled { cursor: not-allowed !important; opacity: 0.55; }
+
         .form-status {
             display: none;
             padding: 0.85rem 1rem;
@@ -565,6 +581,11 @@
         @keyframes send-pulse {
             from { opacity: 0.45; transform: translate(-2px, 2px); }
             to { opacity: 1; transform: translate(2px, -2px); }
+        }
+
+        @media (max-width: 520px) {
+            .verification-row { grid-template-columns: 1fr; }
+            .verification-button { min-height: 48px; width: 100%; }
         }
 
         button:focus-visible,
@@ -701,7 +722,14 @@
         .tools-heading h2 { color: #fff; font-size: clamp(1.7rem, 4vw, 2.75rem); font-weight: 700; letter-spacing: -0.035em; }
         .tools-heading > p { max-width: 440px; color: #94a3b8; font-size: 0.88rem; line-height: 1.65; }
         .logo-loop-shell { position: relative; height: 120px; color: #cbd5e1; background: rgba(255, 255, 255, 0.025); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 18px; }
-        .tool-wordmark { display: inline-flex; min-width: 42px; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; letter-spacing: -0.02em; }
+        .logo-loop-shell .logoloop__item img {
+            max-width: 76px;
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-loop-shell .logoloop__item:hover img {
+            filter: brightness(0) saturate(100%) invert(86%) sepia(46%) saturate(1515%) hue-rotate(130deg) brightness(105%) contrast(103%);
+        }
 
         .contact-grid { display: grid; grid-template-columns: 0.78fr 1.22fr; gap: 1.5rem; }
         .contact-info, .contact-form-card { padding: clamp(1.5rem, 4vw, 2.25rem); }
